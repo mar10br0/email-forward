@@ -1,0 +1,17 @@
+# Go workspace file
+go.work
+go.work.sum
+
+# secrets
+secrets.cmd
+gmail-credentials.json
+gmail-token.json
+
+# Test binary, built with `go test -c`
+*.test
+
+# Compiled binaries
+lambda
+*.exe
+*.dll
+*.zip

@@ -1,0 +1,35 @@
+ {
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Secrets",
+            "type": "shell",
+            "command": "./secrets.cmd",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "Build All",
+            "type": "shell",
+            "command": "./build-all.cmd",
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "New Token",
+            "type": "shell",
+            "command": "./new-token.cmd",
+            "problemMatcher": [],
+            "group": "none"
+        },
+        {
+            "label": "Run Forwarder",
+            "type": "shell",
+            "command": "./run-forwarder.cmd",
+            "problemMatcher": [],
+            "group": "none"
+        }
+    ]
+}
