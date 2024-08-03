@@ -15,6 +15,7 @@ import (
 	"google.golang.org/api/gmail/v1"
 
 	gmailclient "github.com/mar10br0/email-forward/internal/gmail/client"
+	"github.com/mar10br0/email-forward/internal/log"
 	sesmessage "github.com/mar10br0/email-forward/internal/ses/message"
 )
 
@@ -22,7 +23,7 @@ func HandleRequest(ctx context.Context, event events.SimpleEmailEvent) error {
 	log.Progress("Handle SES-request for %s", log.Plurality(int64(len(event.Records)), "messages"))
 	log.Debug("%v", event)
 
-	s3Svc := s3.New(session.Must(session.NewSession()), aws.NewConfig().WithLogLevel(log.LEVEL))
+	s3Svc := s3.New(session.Must(session.NewSession()), aws.NewConfig().WithLogLevel(log.LOGLEVEL))
 
 	var gmailSvc *gmail.Service
 	var err error

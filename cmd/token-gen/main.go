@@ -19,6 +19,7 @@ import (
 	"github.com/google/uuid"
 
 	gmailconfig "github.com/mar10br0/email-forward/internal/gmail/config"
+	"github.com/mar10br0/email-forward/internal/log"
 )
 
 var LAMBDA_PACKAGE_FILENAME = "email-forwarder-lambda.zip"
@@ -87,7 +88,7 @@ func main() {
 		log.Debug(string(pckgOut))
 
 		log.Progress("Uploading %s to S3", LAMBDA_PACKAGE_FILENAME)
-		s3Svc := s3.New(session.Must(session.NewSession()), aws.NewConfig().WithLogLevel(log.LEVEL))
+		s3Svc := s3.New(session.Must(session.NewSession()), aws.NewConfig().WithLogLevel(log.LOGLEVEL))
 		var pckgData []byte
 		if pckgData, err = os.ReadFile(LAMBDA_PACKAGE_FILENAME); err != nil {
 			log.Failure(err, "reading lambda-package")

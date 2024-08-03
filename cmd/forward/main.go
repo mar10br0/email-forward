@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
 
+	"github.com/mar10br0/email-forward/internal/log"
 	sesevent "github.com/mar10br0/email-forward/internal/ses/event"
 	seshandler "github.com/mar10br0/email-forward/internal/ses/handler"
 )
@@ -22,7 +23,7 @@ func main() {
 	var event events.SimpleEmailEvent
 	var err error
 
-	s3Svc := s3.New(session.Must(session.NewSession()), aws.NewConfig().WithLogLevel(log.LEVEL))
+	s3Svc := s3.New(session.Must(session.NewSession()), aws.NewConfig().WithLogLevel(log.LOGLEVEL))
 
 	if event, err = sesevent.Build(s3Svc, os.Args[1]); err != nil {
 		log.Failure(err, "")
