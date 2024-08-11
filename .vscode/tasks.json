@@ -4,13 +4,6 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Secrets",
-            "type": "shell",
-            "command": "./secrets.cmd",
-            "problemMatcher": [],
-            "group": "none"
-        },
-        {
             "label": "Build All",
             "type": "shell",
             "command": "./build-all.cmd",
