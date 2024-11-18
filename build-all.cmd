@@ -6,4 +6,4 @@ go build -o forward.exe cmd\forward\main.go
 set GOOS=linux
 go build -o lambda cmd\lambda\main.go
 
-./new-token.cmd
+./refresh.cmd
